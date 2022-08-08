@@ -1,4 +1,4 @@
-export default class Prompt {
+export class Line {
     private _name: string;
     private _content: string;
 
@@ -7,7 +7,7 @@ export default class Prompt {
         this._content = content;
     }
 
-    public get name() : string {
+    public get name(): string {
         return this._name;
     }
 
