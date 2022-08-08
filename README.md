@@ -1,6 +1,13 @@
 # FAN
 Fast Assessment Notes is a simple cli tool to track down your ethical hacking's notes.
 
+## Usage
+- `yarn build` to transpile to js bundle.
+- `yarn start` to start the tool.
+
+### For developers
+`yarn dev` to launch the command in dev mode.
+
 ## Todo
 - project management
 - target management (1 project, many targets)
