@@ -24,7 +24,7 @@ export default abstract class Mode implements Command {
     }
 
     public get prompt(): Line {
-        const prevPromptContent = this.prevMode && `${this.prevMode?.prompt.content} > `;
+        const prevPromptContent = this.prevMode ? `${this.prevMode?.prompt.content} > ` : '';
         return new Line(this.name, `${prevPromptContent}${chalk.hex(this.color).bold(this.name.toUpperCase())}`)
     }
 

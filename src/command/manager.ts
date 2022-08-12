@@ -56,7 +56,7 @@ export class CommandManager {
                         await supportedCommand.payload(this);
 
                         if (supportedCommand instanceof Mode) {
-                            supportedCommand.prevMode = this._modeManager.currentMode;
+                            supportedCommand.prevMode = this._modeManager.currentMode.name !== 'welcome' ? this._modeManager.currentMode : null;
                             this._modeManager.currentMode = <Mode>supportedCommand;
                             this.rl.setPrompt(supportedCommand.promptLine);
                         }
