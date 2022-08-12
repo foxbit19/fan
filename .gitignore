@@ -107,3 +107,4 @@ dist
 fan.json
 
 bin/**
+.DS_Store
