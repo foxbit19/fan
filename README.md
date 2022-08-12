@@ -1,6 +1,8 @@
 # FAN
 Fast Assessment Notes is a simple cli tool to track down your ethical hacking's notes.
 
+![fan](./fan.gif)
+
 ## Usage
 - `yarn build` to transpile to js bundle.
 - `yarn start` to start the tool.
