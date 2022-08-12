@@ -1,5 +1,5 @@
-import Mode from "./mode";
-import RootMode from "./root";
+import Mode from "./mode.js";
+import RootMode from "./root.js";
 
 export default class ModesManager {
     private current: Mode;

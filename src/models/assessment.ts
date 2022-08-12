@@ -1,8 +1,8 @@
-import Reconnnaissance from "./phases/reconnaissance";
-import Scanning from './phases/scanning';
-import GainingAccess from './phases/access';
-import MaintainingAccess from './phases/maintain';
-import Cover from './phases/cover';
+import Reconnnaissance from "./phases/reconnaissance.js";
+import Scanning from './phases/scanning.js';
+import GainingAccess from './phases/access.js';
+import MaintainingAccess from './phases/maintain.js';
+import Cover from './phases/cover.js';
 
 export default interface Assessment {
     id: string;

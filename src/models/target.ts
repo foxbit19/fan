@@ -1,4 +1,4 @@
-import Assessment from './assessment';
+import Assessment from './assessment.js';
 
 export default interface Target {
     id: string;

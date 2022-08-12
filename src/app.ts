@@ -1,5 +1,10 @@
-import { CommandManager } from './command/manager';
+import { CommandManager } from './command/manager.js';
 
-console.log('Welcome to FAN! Type help to show available commands.\n');
+class App {
+    constructor() {
+        console.log('Welcome to FAN! Type help to show available commands.\n');
+        new CommandManager();
+    }
+}
 
-new CommandManager();
+new App();

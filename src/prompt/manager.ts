@@ -1,5 +1,5 @@
 import readline from 'readline'
-import { Provider } from './provider';
+import { Provider } from './provider.js';
 
 export namespace Prompt {
     export class Manager {

@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { Line } from "./line";
+import { Line } from "./line.js";
 
 export class Provider {
     private _prompts: Array<Line>;

@@ -1,7 +1,7 @@
-import { Line } from "../prompt/line";
-import Mode from "./mode";
+import { Line } from "../prompt/line.js";
+import Mode from "./mode.js";
 import chalk from 'chalk';
-import Command from "../command/command";
+import Command from "../command/command.js";
 
 export default class Targets extends Mode {
     public get name(): string {

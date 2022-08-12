@@ -1,20 +1,17 @@
 import readline from 'readline'
-import ModesManager from '../modes/manager';
-import { Prompt } from '../prompt/manager';
+import ModesManager from '../modes/manager.js';
+import { Prompt } from '../prompt/manager.js';
 import { JsonDB } from 'node-json-db';
-import { Config } from 'node-json-db/dist/lib/JsonDBConfig';
-import { Commands } from './commands/help';
-import Mode from '../modes/mode';
+import { Config } from 'node-json-db/dist/lib/JsonDBConfig.js';
+import { Commands } from './commands/help.js';
+import Mode from '../modes/mode.js';
 
 export class CommandManager {
     private rl: readline.Interface;
     private promptManager: Prompt.Manager;
     private _modeManager: ModesManager;
-    private _db: JsonDB;
 
     constructor() {
-        this._db = new JsonDB(new Config("fan", true));
-
         this.rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout
@@ -30,10 +27,6 @@ export class CommandManager {
 
     public get readline() {
         return this.rl;
-    }
-
-    public get db() {
-        return this._db;
     }
 
     private init() {
@@ -62,12 +55,14 @@ export class CommandManager {
                         if (supportedCommand instanceof Mode) {
                             this._modeManager.currentMode = <Mode>supportedCommand;
                         }
+                        this.rl.pause();
                         await supportedCommand.payload(this);
+                        this.rl.resume();
                     }
                 }
                 break;
-        }
+            }
 
-        this.rl.prompt();
+            this.rl.prompt();
     }
 }

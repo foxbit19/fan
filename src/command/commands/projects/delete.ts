@@ -1,5 +1,5 @@
-import Command from "../../command";
-import { CommandManager } from "../../manager";
+import Command from "../../command.js";
+import { CommandManager } from "../../manager.js";
 
 export class Delete implements Command {
     get name(): string {

@@ -1,6 +1,6 @@
 import { printTable } from 'console-table-printer';
-import Command from '../command';
-import { CommandManager } from '../manager';
+import Command from '../command.js';
+import { CommandManager } from '../manager.js';
 
 export namespace Commands {
     export class Help implements Command {

@@ -1,8 +1,8 @@
-import Command from '../command/command';
-import { Line } from '../prompt/line';
+import Command from '../command/command.js';
+import { Line } from '../prompt/line.js';
 import readline from 'readline';
 import chalk from 'chalk';
-import { CommandManager } from '../command/manager';
+import { CommandManager } from '../command/manager.js';
 
 export default abstract class Mode implements Command {
     public abstract get name(): string;

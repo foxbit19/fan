@@ -1,9 +1,8 @@
 import chalk from "chalk";
-import Command from "../command/command";
-import { Line } from "../prompt/line";
-import Mode from "./mode";
-import ProjectMode from "./project";
-import Targets from "./targets";
+import Command from "../command/command.js";
+import { Line } from "../prompt/line.js";
+import Mode from "./mode.js";
+import ProjectMode from "./project.js";
 
 export default class RootMode extends Mode {
     get description(): string {
@@ -19,6 +18,6 @@ export default class RootMode extends Mode {
     }
 
     public get supportedCommands(): Array<Command> {
-        return [new ProjectMode, new Targets];
+        return [new ProjectMode];
     }
 }

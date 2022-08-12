@@ -1,7 +1,7 @@
-import Target from "./target";
+import Target from "./target.js";
 
 export default interface Project {
     id: string;
     name: string;
-    targets: Array<Target>;
+    targets?: Array<Target>;
 }

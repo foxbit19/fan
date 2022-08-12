@@ -1,7 +1,8 @@
 import { randomUUID } from "crypto";
-import Command from "../../command";
-import { CommandManager } from "../../manager";
+import Command from "../../command.js";
+import { CommandManager } from "../../manager.js";
 import { printTable } from 'console-table-printer';
+import ProjectProvider from "../../../providers/project.js";
 
     export class Show implements Command {
         get name(): string {
@@ -14,7 +15,7 @@ import { printTable } from 'console-table-printer';
 
         async payload(manager: CommandManager): Promise<void> {
             console.log('Show all your projects')
-            printTable((await manager.db.getData('projects')).projects.map((project: any) => ({ 'Project name': project.name })))
+            printTable((await ProjectProvider.getAll()).map((project: any) => ({ 'Project name': project.name })))
         }
 
     }
