@@ -1,7 +1,7 @@
 import Command from "../command/command.js";
 import { Add } from "../command/commands/projects/add.js";
 import { Delete } from "../command/commands/projects/delete.js";
-import { Edit } from "../command/commands/projects/edit.js";
+import { Edit } from "./projects/edit.js";
 import { Show } from "../command/commands/projects/show.js";
 import Mode from "./mode.js";
 

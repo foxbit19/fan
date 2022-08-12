@@ -11,4 +11,8 @@ export default class Database {
     public static async add(modelName: string, content: object) {
         await this.db.push(modelName, [content], false)
     }
+
+    public static async get(modelName: string, id: string) : Promise<any> {
+        return await this.db.getData(`${modelName}/${await this.db.getIndex(modelName, id)}`);
+    }
 }

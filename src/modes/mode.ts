@@ -10,25 +10,25 @@ export default abstract class Mode implements Command {
     public abstract get color(): string;
     public abstract get supportedCommands(): Array<Command>;
 
+    /**
+     * Previous mode of the chain
+     */
+    public prevMode: Mode | null;
+
+    constructor() {
+        this.prevMode = null;
+    }
+
     public payload(manager: CommandManager) {
         console.log(`Welcome to ${this.name} mode. This mode is under construction.`)
-        manager.readline.setPrompt(this.promptLine);
     }
 
-    public handleHelp(rl: readline.Interface) {
-        if (this.supportedCommands.length === 0) {
-            console.log('There are no available commands.')
-        } else {
-            console.log(`Available commands for ${this.name} mode:`)
-            console.log(this.supportedCommands.map(command => (new (<any>command)()).name))
-        }
+    public get prompt(): Line {
+        const prevPromptContent = this.prevMode && `${this.prevMode?.prompt.content} > `;
+        return new Line(this.name, `${prevPromptContent}${chalk.hex(this.color).bold(this.name.toUpperCase())}`)
     }
 
-    private get prompt(): Line {
-        return new Line(this.name, chalk.hex(this.color).bold(this.name.toUpperCase()))
-    }
-
-    private get promptLine() {
+    public get promptLine() {
         return `${this.prompt.content} > `;
     }
 }

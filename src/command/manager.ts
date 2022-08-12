@@ -50,16 +50,19 @@ export class CommandManager {
                 break;
             default:
                 // load available commands based on current mode
+                this.rl.pause();
                 for (const supportedCommand of this.modeManager.currentMode.supportedCommands) {
                     if (supportedCommand.name === command.trim()) {
-                        if (supportedCommand instanceof Mode) {
-                            this._modeManager.currentMode = <Mode>supportedCommand;
-                        }
-                        this.rl.pause();
                         await supportedCommand.payload(this);
-                        this.rl.resume();
+
+                        if (supportedCommand instanceof Mode) {
+                            supportedCommand.prevMode = this._modeManager.currentMode;
+                            this._modeManager.currentMode = <Mode>supportedCommand;
+                            this.rl.setPrompt(supportedCommand.promptLine);
+                        }
                     }
                 }
+                this.rl.resume();
                 break;
             }
 
